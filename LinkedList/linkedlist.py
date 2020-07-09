@@ -25,6 +25,10 @@ class LinkedList:
         actual_node = self.head
         new_node = Node(data)
 
+        if not self.head:
+            self.head = new_node
+            return
+            
         while actual_node.next_node:
             actual_node = actual_node.next_node
 
