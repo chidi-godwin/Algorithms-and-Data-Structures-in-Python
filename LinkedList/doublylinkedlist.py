@@ -18,26 +18,25 @@ class DoublyLinkedList:
 
         if not self.head:
             self.head = new_node
+            self.tail = self.head
         else:
             self.head.prev_node = new_node
-            new_node.next = self.head
+            new_node.next_node = self.head
             self.head = new_node
 
     def insert_end(self, data):
         """insert data at the end of linked list"""
         self.size += 1
-        actual_node = self.head
         new_node = Node(data)
 
         if not self.head:
             self.head = new_node
+            self.tail = self.head
             return
 
-        while actual_node.next_node:
-            actual_node = actual_node.next_node
-
-        new_node.prev_node = actual_node
-        actual_node.next_node = new_node
+        new_node.prev_node = self.tail
+        self.tail.next_node = new_node
+        self.tail = new_node
 
     def traverse(self):
         """ print all elements in list"""
