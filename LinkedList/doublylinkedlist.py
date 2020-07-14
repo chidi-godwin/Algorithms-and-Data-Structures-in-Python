@@ -75,11 +75,11 @@ class DoublyLinkedList:
         if self.head is None:
             return
 
-        self.size -= 1
         current_node = self.search(data)
 
         if not current_node:
             return f"{data} is not in list"
         else:
+            self.size -= 1
             current_node.next_node.prev_node = current_node.prev_node
             current_node.prev_node.next_node = current_node.next_node
