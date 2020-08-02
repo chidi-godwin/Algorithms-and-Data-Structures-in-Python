@@ -71,14 +71,14 @@ class CircularLinkedList(DoublyLinkedList):
             return f"{data} is not in list"
         elif current_node == self.head:
             self.size -= 1
-            self.head = current_node
             current_node.next_node.prev_node = current_node.prev_node
             current_node.prev_node.next_node = current_node.next_node
+            self.head = current_node.next_node
         elif current_node == self.tail:
             self.size -= 1
-            self.tail = current_node
             current_node.next_node.prev_node = current_node.prev_node
             current_node.prev_node.next_node = current_node.next_node
+            self.tail = current_node.prev_node
         else:
             self.size -= 1
             current_node.next_node.prev_node = current_node.prev_node
